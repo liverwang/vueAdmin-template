@@ -7,7 +7,11 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
+    "mock": "DEBUG=xiaoyaoji-mock-server:* xiaoyaoji-mock-server --file=config/mock.json --prefix='$prefix$'",
     "build": "node build/build.js",
+    "build:dev": "BUILD_ENV=dev node build/build.js",
+    "build:test": "BUILD_ENV=test node build/build.js",
+    "build:pre": "BUILD_ENV=pre node build/build.js",
     "build:report": "npm_config_report=true node build/build.js",
     "lint": "eslint --ext .js,.vue src",
     "test": "npm run lint"
@@ -66,7 +70,8 @@
     "webpack": "3.10.0",
     "webpack-bundle-analyzer": "2.9.1",
     "webpack-dev-server": "2.9.7",
-    "webpack-merge": "4.1.1"
+    "webpack-merge": "4.1.1",
+    "xiaoyaoji-mock-server": "0.1.1"
   },
   "engines": {
     "node": ">= 4.0.0",

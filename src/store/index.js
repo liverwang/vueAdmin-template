@@ -14,4 +14,20 @@ const store = new Vuex.Store({
   getters
 })
 
+if (module.hot) {
+  // 使 action 和 mutation 成为可热重载模块
+  module.hot.accept(['./getters', './modules/user'], () => {
+    // 获取更新后的模块
+    const newGetters = require('./getters').default
+    const newModuleUser = require('./modules/user').default
+    // 加载新模块
+    store.hotUpdate({
+      mutations: newGetters,
+      getters: {
+        user: newModuleUser
+      }
+    })
+  })
+}
+
 export default store

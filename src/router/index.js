@@ -30,10 +30,12 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/dashboard',
     name: 'Dashboard',
-    hidden: true,
+    // meta: { title: '首页', icon: 'home' },
+    hidden: false,
     children: [{
       path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
+      component: () => import('@/views/dashboard/index'),
+      meta: { title: '首页', icon: 'home' }
     }]
   },
 
@@ -42,19 +44,19 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    meta: { title: '示例', icon: 'example' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: '表格', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: '树', icon: 'tree' }
       }
     ]
   },
@@ -67,7 +69,7 @@ export const constantRouterMap = [
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: '表单', icon: 'form' }
       }
     ]
   },
@@ -78,7 +80,7 @@ export const constantRouterMap = [
     redirect: '/nested/menu1',
     name: 'nested',
     meta: {
-      title: 'nested',
+      title: '菜单',
       icon: 'nested'
     },
     children: [
@@ -86,46 +88,35 @@ export const constantRouterMap = [
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
         name: 'menu1',
-        meta: { title: 'menu1' },
+        meta: { title: '二级菜单' },
         children: [
           {
             path: 'menu1-1',
             component: () => import('@/views/nested/menu1/menu1-1'),
             name: 'menu1-1',
-            meta: { title: 'menu1-1' }
+            meta: { title: '三级菜单' }
           },
           {
             path: 'menu1-2',
             component: () => import('@/views/nested/menu1/menu1-2'),
             name: 'menu1-2',
-            meta: { title: 'menu1-2' },
+            meta: { title: '三级菜单' },
             children: [
               {
                 path: 'menu1-2-1',
                 component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
                 name: 'menu1-2-1',
-                meta: { title: 'menu1-2-1' }
+                meta: { title: '四级菜单' }
               },
               {
                 path: 'menu1-2-2',
                 component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
                 name: 'menu1-2-2',
-                meta: { title: 'menu1-2-2' }
+                meta: { title: '四级菜单' }
               }
             ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'menu1-3',
-            meta: { title: 'menu1-3' }
           }
         ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
       }
     ]
   },
