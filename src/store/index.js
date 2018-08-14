@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import app from './modules/app'
+import sample from './modules/sample/index'
+import app from './modules/app/index'
 import user from './modules/user'
 import getters from './getters'
 
@@ -8,6 +9,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
+    sample,
     app,
     user
   },

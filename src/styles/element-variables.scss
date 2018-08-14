@@ -1,0 +1,11 @@
+/**
+ * 通过变量自定义样式
+ * 支持的变量参考[element-variables-default.sass]文件
+ *
+*/
+$--color-primary: purple;
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";

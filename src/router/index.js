@@ -120,7 +120,18 @@ export const constantRouterMap = [
       }
     ]
   },
-
+  {
+    path: '/sample',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'sample',
+        component: () => import('@/views/sample/index'),
+        meta: { title: '示例', icon: 'form' }
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 

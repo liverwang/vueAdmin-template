@@ -42,15 +42,22 @@
       <el-form-item>
         <el-button type="primary" @click="onSubmit">Create</el-button>
         <el-button @click="onCancel">Cancel</el-button>
+        <el-button @click="isDialogVisible=true">ToggleModal</el-button>
       </el-form-item>
     </el-form>
+    <modal-add :isDialogVisible="isDialogVisible" v-on:dialog-cancel="onDialogCancel"></modal-add>
   </div>
 </template>
 
 <script>
+import ModalAdd from './add'
 export default {
+  components: {
+    ModalAdd
+  },
   data() {
     return {
+      isDialogVisible: false,
       form: {
         name: '',
         region: '',
@@ -72,7 +79,11 @@ export default {
         message: 'cancel!',
         type: 'warning'
       })
+    },
+    onDialogCancel() {
+      this.isDialogVisible = false
     }
+
   }
 }
 </script>
